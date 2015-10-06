@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dotfiles=$(pwd)
+existing_dotfiles=~/existing_dotfiles
 files=".bashrc .vimrc .inputrc .gitconfig .bash_aliases"
 
 # Clone Vundle first
@@ -17,11 +18,19 @@ then
   ./install.sh --clang-completer
 fi
 
-cd ~/
+#Create existing_dotfiles folder in home directory
+echo "Creating folder for backup of any existing dotfiles"
+mkdir -p $existing_dotfiles
+
+cd $dotfiles
 
 # Create symbolic links
-cd $dotfiles
 for file in $files; do
+  if [ -e ~/$file ]
+  then
+    echo "Move existing $file file"
+    mv ~/$file $existing_dotfiles
+  fi
   echo "Creating symlink to $file in home directory"
   ln -s $dotfiles/$file ~/$file
 done
