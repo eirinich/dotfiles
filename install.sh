@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dotfiles=$(pwd)
+files=".bashrc .vimrc .inputrc .gitconfig .bash_aliases"
 
 # Clone Vundle first
 git clone https://github.com/gmarik/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
@@ -16,13 +17,15 @@ then
   ./install.sh --clang-completer
 fi
 
-# Create symbolic links
 cd ~/
+
+# Create symbolic links
+cd $dotfiles
 for file in $files; do
   echo "Creating symlink to $file in home directory"
   ln -s $dotfiles/$file ~/$file
 done
 
 # Return where we started
-cd $dotfiles
+cd ~/
 echo "++ Installation completed!"
