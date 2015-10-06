@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dotfiles=$(pwd)
 
@@ -20,7 +20,7 @@ fi
 cd ~/
 for file in $files; do
   echo "Creating symlink to $file in home directory"
-  ln -s $dotfiles/$file ~/.$file
+  ln -s $dotfiles/$file ~/$file
 done
 
 # Return where we started
