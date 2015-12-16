@@ -8,7 +8,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe' "https://github.com/Valloric/YouCompleteMe
 Plugin 'eirinich/vim-snippets' "https://github.com/eirinich/vim-snippets
