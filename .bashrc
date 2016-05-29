@@ -105,9 +105,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-source /opt/ros/hydro/setup.bash
-source /home/eirini/catkin_ws/devel/setup.bash
-source /home/eirini/pandora_ws/devel/setup.bash --extend
+source /opt/ros/indigo/setup.bash
+#source /home/eirini/catkin_ws/devel/setup.bash
+#source /home/eirini/pandora_ws/devel/setup.bash --extend
 
 ################################ Git highlighting script #############################
 
@@ -115,44 +115,13 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWUPSTREAM="auto"
 
-function proml {
-  local        BLUE="\[\033[0;34m\]"
-  local        LIGHT_BLUE="\[\033[1;34m\]"
-# OPTIONAL - if you want to use any of these other colors:
-  local         RED="\[\033[0;31m\]"
-  local   LIGHT_RED="\[\033[1;31m\]"
-  local       GREEN="\[\033[0;32m\]"
-  local LIGHT_GREEN="\[\033[1;32m\]"
-  local      YELLOW="\[\033[0;33m\]"
-  local LIGHT_YELLOW="\[\033[1;33m\]"
-  local        CYAN="\[\033[0;36m\]"
-  local  LIGHT_CYAN="\[\033[1;36m\]"
-  local      MAGENTA="\[\033[0;35m\]"
-  local  LIGHT_MAGENTA="\[\033[1;35m\]"
-  local       WHITE="\[\033[1;37m\]"
-  local  LIGHT_GRAY="\[\033[0;37m\]"
-# END OPTIONAL
-  local     DEFAULT="\[\033[0m\]"
-  local          start_angle=""
-  local         start_smooth="╭"
-
-  local     stop_angle_snow="❄"
-  local    stop_smooth_snow="╰❄"
-
-  local   stop_angle_sparkle="❊"
-  local  stop_smooth_sparkle="╰❊"
-
-PS1="$LIGHT_YELLOW$start_smooth$LIGHT_MAGENTA\u$LIGHT_RED@$LIGHT_BLUE\h$LIGHT_YELLOW:$LIGHT_CYAN\w$LIGHT_RED\$(__git_ps1)$DEFAULT$LIGHT_YELLOW\$\n$LIGHT_YELLOW$stop_smooth_sparkle$DEFAULT "
-}
-
+source ~/.style.bash
 proml
+
+export WORKON_HOME=~/.VirtualEnvs
+export PROJECT_HOME=~/Programming
+source /usr/local/bin/virtualenvwrapper.sh
 
 export CC=clang
 export CXX=clang++
 export ROS_IP=`hostname -I`
-
-alias gio="ssh -A pandora"
-
-alias robot_export='export ROS_MASTER_URI=http://192.168.0.106:11311'
-alias my_export='export ROS_MASTER_URI=http://localhost:11311'
-my_export

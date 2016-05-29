@@ -2,16 +2,17 @@
 
 dotfiles=$(pwd)
 existing_dotfiles=~/existing_dotfiles
-files=".bashrc .vimrc .inputrc .gitconfig .bash_aliases"
+files=".vim .bashrc .vimrc .inputrc .gitconfig .bash_aliases .latexmkrc
+.style.bash"
 
 # Clone Vundle first
-git clone https://github.com/gmarik/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $dotfiles/.vim/bundle/Vundle.vim
 
 # Install all plugins
 vim +PluginInstall +qall
 
 # Compile YouCompleteMe
-if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.sh ]
+if [ -e $dotfiles/.vim/bundle/YouCompleteMe/install.py ]
 then
   echo "++ Compiling YouCompleteMe!"
   cd $dotfiles/.vim/bundle/YouCompleteMe/

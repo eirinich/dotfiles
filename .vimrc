@@ -18,9 +18,11 @@ Plugin 'Yggdroot/indentLine' "https://github.com/Yggdroot/indentLine
 Plugin 'scrooloose/nerdcommenter' "https://github.com/scrooloose/nerdcommenter
 Plugin 'scrooloose/nerdtree' "https://github.com/scrooloose/nerdtree
 Plugin 'scrooloose/syntastic' "https://github.com/scrooloose/syntastic
+Plugin 'LaTeX-Box-Team/LaTeX-Box' "https://github.com/LaTeX-Box-Team/LaTeX-Box
 " Requires 'exuberant-ctags'
 Plugin 'majutsushi/tagbar' "https://github.com/majutsushi/tagbar
 Plugin 'bling/vim-airline' "https://github.com/bling/vim-airline
+Plugin 'vim-airline/vim-airline-themes' "https://github.com/vim-airline/vim-airline-themes
 Plugin 'flazz/vim-colorschemes' "https://github.com/flazz/vim-colorschemes
 Plugin 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive
 "Plugin 'techlivezheng/vim-plugin-minibufexpl' "https://github.com/techlivezheng/vim-plugin-minibufexpl
@@ -183,6 +185,8 @@ autocmd FileType gitcommit setlocal spell
 " FILETYPES SETTINGS
 " add custom filetypes
 au BufNewFile,BufRead *.launch set filetype=xml " this is probably handled by vim-ros plugin
+"disable syntastic plugin for tex files
+let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] }
 
 
 " CUSTOM MAPPINGS
