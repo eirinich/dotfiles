@@ -4,3 +4,4 @@ $dvi_mode = 0;
 $pdf_mode = 1;
 $preview_continuous_mode = 1;
 $pdflatex = "xelatex %O %S";
+$out_dir = 'build_doc';

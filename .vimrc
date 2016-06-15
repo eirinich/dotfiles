@@ -180,7 +180,7 @@ endif
 " set spell checking for certain filetypes
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
-
+set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
 
 " FILETYPES SETTINGS
 " add custom filetypes
@@ -204,6 +204,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-h> <c-w>h
 nnoremap <c-k> <c-w>k
+
+" map Control-ArrowKeys to move around the buffer list
+nnoremap <S-Right> :bnext<CR>
+nnoremap <S-Left> :bprevious<CR>
 
 " Using '<' and '>' in visual mode to shift code by a tab-width left/right by
 " default exits visual mode. With this mapping we remain in visual mode after
@@ -269,7 +273,7 @@ set laststatus=2
 set ttimeoutlen=50
 
 " change default colors for airline
-let g:airline_theme = 'kolor'
+let g:airline_theme = 'luna'
 
 " enable powerline symbols, needs powerline fonts installed
 let g:airline_powerline_fonts = 1

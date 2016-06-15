@@ -6,3 +6,6 @@ set spellsuggest=best,3
 set autowrite
 
 noremap <F5> :silent make view<CR>
+
+" Set default output file
+let g:LatexBox_build_dir = "build_doc"
